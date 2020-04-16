@@ -3,46 +3,58 @@ package se.lexicon;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
 public class AppTest 
 {
+    public double a = 10, b = 5;
+
     /**
-     * Rigorous Test :-)
+     * test if + works
      */
     @Test
-    public void given_operator_return_true_0() {
-        int a = 10, b = 5, result = 0;
+    public void given_plus_return_true() {
         char operator = '+';
-        result = a + b;
-        Assert.assertFalse(result != 15);
+        double expectedResult = 15;
+        double actualResult = App.calculate(operator, a, b);
+        Assert.assertTrue(expectedResult == actualResult);
     }
 
+
+    /**
+     * test if - works
+     */
     @Test
-    public void given_operator_return_true_1() {
-        int a = 10, b = 5, result = 0;
+    public void given_minus_return_true() {
         char operator = '-';
-        result = a - b;
-        Assert.assertFalse(result != 5);
+        double expectedResult = 5;
+        double actualResult = App.calculate(operator, a, b);
+        Assert.assertTrue(expectedResult == actualResult);
     }
 
+
+    /**
+     * test if * works
+     */
     @Test
-    public void given_operator_return_true_2() {
-        int a = 10, b = 5, result = 0;
+    public void given_multiply_return_true() {
         char operator = '*';
-        result = a * b;
-        Assert.assertFalse(result != 50);
+        double expectedResult = 50;
+        double actualResult = App.calculate(operator, a, b);
+        Assert.assertTrue(expectedResult == actualResult);
     }
 
+
+    /**
+     * test if / works
+     */
     @Test
-    public void given_operator_return_true_3() {
-        int a = 10, b = 5, result = 0;
+    public void given_divide_return_true() {
         char operator = '/';
-        result = a / b;
-        Assert.assertFalse(result != 2);
+        double expectedResult = 2;
+        double actualResult = App.calculate(operator, a, b);
+        Assert.assertTrue(expectedResult == actualResult);
     }
 
 }

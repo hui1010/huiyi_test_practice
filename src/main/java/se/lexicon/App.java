@@ -7,17 +7,44 @@ public class App
 {
     public static void main( String[] args )
     {
-        double a = 0, b = 0, result = 0;
+        double a = 0, b = 0;
+        char[] defaultOperators = {'+', '-', '*', '/'};
+        char operator;
+
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the fist number: ");
+        System.out.println("Please enter the first number: ");
         a = scanner.nextDouble();
         scanner.nextLine();
         System.out.println("Please enter the second number: ");
         b = scanner.nextDouble();
         scanner.nextLine();
-        System.out.println("Please choose from (+ - * /)");
-        char operator = scanner.next().charAt(0);
 
+
+
+        while (true) {
+            boolean check = false;
+            System.out.println("Please choose from (+ - * /)");
+            operator = scanner.next().charAt(0);
+            scanner.nextLine();
+
+            for (int i = 0; i < defaultOperators.length; i++) {
+                if (operator == defaultOperators[i]) {
+                    check = true;
+                    break;
+                }
+            }
+            if (check = true)
+                break;
+            else
+                continue;
+        }
+
+        System.out.println( calculate(operator, a, b));
+
+    }
+
+    public static double calculate(char operator, double a, double b) {
+        double result = 0;
         switch (operator) {
             case '+':
                 result = a + b;
@@ -32,8 +59,7 @@ public class App
                 result = a / b;
                 break;
             default:
-                System.out.println(operator + " is not supported");
-        }
-        System.out.println(result);
+                break;
+        }return result;
     }
 }
